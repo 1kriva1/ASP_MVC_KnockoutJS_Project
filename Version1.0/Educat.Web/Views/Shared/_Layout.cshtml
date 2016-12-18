@@ -1,0 +1,75 @@
+﻿@{
+    string currentAction = (string)ViewBag.Action;
+    var getSelectedMenu = new Func<string, string>((item) =>
+        {
+            if (item == currentAction)
+            {
+                return "x";
+            }
+            else
+            {
+                return "";
+            }
+        }
+    );
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="#" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script src="~/Scripts/knockout-3.3.0.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    <script src="~/Scripts/knockout.validation.js"></script>
+    <script src="~/CustomScripts/GlobalFunctions.js"></script>
+    <script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+    <script src="~/CustomScripts/MenuScript.js"></script>
+    <script src="~/Scripts/datejs.js"></script>
+
+    @using System.Web.Http.Controllers;
+    <script>
+        self.mainFormVisib = ko.observable(true);
+    </script>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <div class="content-wrapper">
+                
+                <div class="menu">
+                    <h1>Educat Admin</h1>
+                    <div>
+                        <i id="pull">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </i>
+                        <div id="mmenu">
+                            <a href="/Home/Students" class="@getSelectedMenu("Students")">Students</a>
+                            <a href="/Home/Schools" class="@getSelectedMenu("Schools")">Schools</a>
+                            <a href="/Home/Subjects" class="@getSelectedMenu("Subjects")">Subjects</a>
+                            <a href="/Home/Cources" class="@getSelectedMenu("Cources")">Cources</a>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

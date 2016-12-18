@@ -1,0 +1,45 @@
+﻿@using Educat.Logic.Pages;
+@{
+    ViewBag.Title = "Cources";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Action = "Cources";
+}
+<script>
+    Context = {
+            Feed: @Html.Raw(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(new Feed<object>()))
+        };
+
+</script>
+
+<script src="~/CustomScripts/courceList.js"></script>
+<div class="wrap-mid">   
+    <div class="content-wrapper">
+        <div class="list">
+            <div class="buttonPanel">
+                <a href="/Home/Subjects">Subjects</a> 
+            </div>
+            <br>
+            <label class="counter" data-bind="text: 'All :' + feed.Total()"></label>
+            <a class="refresh" href="#" data-bind="click: reload">Refresh</a>
+            <div class="header">
+                <input type="search" class="searchs" placeholder="Search" data-bind="value: search, valueUpdate: 'afterkeydown'"/>
+            </div>
+            <div data-bind="foreach: feed.Items" class="data-table">
+                <div class="table-block">
+                    <div class="IdStud" data-bind="text: Id"></div>
+                    <div>
+                        <a data-bind="attr: { href: '/Home/Cource/' + Id }">
+                            <div data-bind="    text: SubjectName"></div>
+                        </a>
+                    </div>
+                    <div class="IdStud" data-bind="text: SchoolId"></div>
+                    <div class="IdStud" data-bind="text: StartDateString"></div>
+                    <div class="IdStud" data-bind="text: FinishDateString"></div>
+                </div>
+            </div>
+            <div class="buttonMore" data-bind="click: showMore, visible: feed.Items().length < feed.Total()"><strong>Show more</strong></div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,72 @@
+﻿@using Educat.Logic.Dto;
+
+
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/CustomScripts/student.js"></script>
+
+<script>
+    window.model = @Html.Raw(Json.Encode(Model));   
+</script>
+
+<div class="wrap-mid">  
+    @if (Model.Id > 0)
+            {
+                <h1 class="addTitle">Update Student</h1>
+            }
+            else
+            {
+                <h1 class="addTitle">Add Student</h1>
+            } 
+    <div class="content-wrapper">
+        <div class="addupdate">
+            <div class="mainForm notDialog">
+                <ul>
+                    <li>
+                        <strong>First name</strong>
+                        
+                        <span class="valMess" data-bind="validationMessage: FirstName"></span>
+                        <input type="text" name="FirstName" id="firstName" data-bind="value: FirstName" />
+                    </li>
+                    <li>
+                        <strong>Last name</strong>
+                        <span class="valMess" data-bind="validationMessage: LastName"></span>
+                        <input type="text" name="LastName" id="lastName" data-bind="value: LastName" />
+                    </li>
+                    <li>
+                        <strong>Email</strong>
+                        <span class="valMess" data-bind="validationMessage: Email"></span>
+                        <input type="text" name="Email" id="email" data-bind="value: Email" />
+                    </li>
+                    <li>
+                        <strong>Date of birth</strong>
+                        <br>
+                        <input type="text" class="datepicker" data-bind="value: DobString" />
+                    </li>
+                </ul>
+                <div class="buttonsMain">
+                    @if (Model.Id > 0)
+                    {
+                        <input type="button" name="AddStudent" value="Update" data-bind="click: updateStudent" />
+                    }
+                    else
+                    {
+                        <input type="button" name="AddStudent" value="Add" data-bind="click: addStudent" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+
+
+    
+
+

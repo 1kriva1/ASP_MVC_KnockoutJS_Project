@@ -1,0 +1,151 @@
+﻿@using Educat.Model.Table;
+
+@model School
+
+@{
+    ViewBag.Title = "School";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+
+<script src="~/CustomScripts/school.js"></script>
+
+
+<script>
+    window.model = @Html.Raw(Json.Encode(Model));   
+</script>
+@{
+    ViewBag.schoolId = Model.Id;
+    }
+<div class="wrap-mid">  
+    <div class="content-wrapper">
+        @if (Model.Id > 0)
+        {
+            <div class="buttonPanel">
+                <button onclick="location.href='/Home/Cource';">Add Cource</button>
+            </div>
+        }
+        
+        <div class="addupdate">
+            <div class="allHide" data-bind="style: {display: mainFormVisib() ? 'none' : 'block'} ">
+                <div class="dialog" data-bind="with: deleteStudentPopup, style:{display: deleteStudentPopup()==null ? 'none': 'block'}">
+                    <div class="title">
+                        <strong>Remove</strong>
+                        <div data-bind="click: $parent.closeDeleteStudent">
+                            X
+                        </div>
+                    </div>
+                    <h3>Are you sure to delete student from school?</h3>
+                    <div class="center">
+                        <button class="butt" data-bind="click: deletes">Remove</button>
+                        <button class="butCancel" data-bind="click: $parent.closeDeleteStudent">Cancel</button>
+                    </div>
+                </div>
+                <div class="dialog" data-bind="with: deleteSubjectPopup, style:{display: deleteSubjectPopup()==null ? 'none': 'block'}">
+                    <div class="title">
+                        <strong>Remove</strong>
+                        <div data-bind="click: $parent.closeDeleteSubject">
+                            X
+                        </div>
+                    </div>
+                    <h3>Are you sure to remove cource from school?</h3>
+                    <div class="center">
+                        <button class="butt" data-bind="click: deletes">Remove</button>
+                        <button class="butCancel" data-bind="click: $parent.closeDeleteSubject">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="dialog" data-bind="with: addSubjectPopup, style:{display: addSubjectPopup()==null ? 'none': 'block'}">
+                    <div class="title">
+                        <strong>Add</strong>
+                        <div data-bind="click: $parent.closeAddSubject">
+                            X
+                        </div>
+                    </div>
+                    <div class="center">
+                        <input type="text" name="Name" placeholder="Subject name" data-bind="value: newSubject" />
+                        <br />
+                        <button class="butt" data-bind="click: add">Add</button>
+                        <button class="butCancel" data-bind="click: $parent.closeAddSubject">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="dialog" data-bind="with: addStudentPopup, style:{display: addStudentPopup()==null ? 'none': 'block'}">
+                    <div class="title">
+                        <strong>Add</strong>
+                        <div data-bind="click: $parent.closeAddStudent">
+                            X
+                        </div>
+                    </div>
+                    <div class="center">
+                        <select data-bind="options: availableStudents, value: selectedStudent,
+                                            optionsText: function(item) {
+                                                return item.FirstName() + ' ' + item.LastName()},
+                                            optionsCaption: $root.dynamicOptionsCaption()">
+                        </select>
+                        <br />
+                        <button class="butt" data-bind="click: add, enable: enabled()">Add</button>
+                        <button class="butCancel" data-bind="click: $parent.closeAddStudent">Cancel</button>
+                    </div>
+                </div>
+            </div>            
+            @if (Model.Id > 0)
+            {
+                <h1 class="addTitle">Update School</h1>
+            }
+            else
+            {
+                <h1 class="addTitle">Add School</h1>
+            }
+            
+            <div class="mainForm notDialog">
+                <ul>
+                    <li>
+                        <label><strong>Name</strong></label>
+                        <span class="valMess" data-bind="validationMessage: Name"></span>
+                        <input type="text" name="Name" id="name" data-bind="value: Name" />
+                    </li>
+                    @if (Model.Id > 0)
+                    {   
+                        <li class="dialogList">
+                            <label><strong>Students:</strong></label>
+                            <div class="container">
+                                <div data-bind="foreach: Students">
+                                    <div class="tag">
+                                        <div data-bind="text: FirstName() + ' ' + LastName()"></div>
+                                        <div class="closeTag" data-bind="click: $root.openDeleteStudent">X</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="addSchool" data-bind="click: openAddStudent">Add</button>
+                        </li>
+                        <li class="dialogList">
+                            <label><strong>Subjects:</strong></label>
+                            <div class="container">
+                                <div data-bind="foreach: Subjects">
+                                    <div class="tag">
+                                        <div><a data-bind="attr: { href: '/Home/Subject/' + Id() }">
+                                            <div data-bind="    text: Name"></div>
+                                        </a></div>
+                                        <div class="closeTag" data-bind="click: $root.openDeleteSubject">X</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="addSchool" data-bind="click: openAddSubject">Add</button>
+                        </li>
+                    }
+                </ul>
+                <div class="buttonsMain">
+                    @if (Model.Id > 0)
+                    {
+                        <input type="button" name="UpdateSchool" value="Update" data-bind="click: updateSchool" />
+                    }
+                    else
+                    {
+                        <input type="button" name="AddSchool" value="Add" data-bind="click: addSchool" />
+            }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

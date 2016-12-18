@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Datejs</id>
+    <version>1.0.0</version>
+    <title>Datejs</title>
+    <authors>Geoffrey McGill, Gregory Wild-Smith (abritinthebay)</authors>
+    <owners>Geoffrey McGill, Gregory Wild-Smith (abritinthebay)</owners>
+    <licenseUrl>https://github.com/abritinthebay/datejs/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/abritinthebay/datejs</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A JavaScript Date object to add much better parsing, internationalization support, and all the functions and syntactic sugar you could wish for.
+
+Date JS was started by Geoffrey McGill in 2007, he abandoned it on May 13th 2008; leaving the Google Code repository stagnant and with many bugs unresolved.
+
+This fork was started improve and maintain DateJS. To keep what is still the most full featured JavaScript Date library alive, maintained, and improved. Currently we're on track towards a 1.0 release - having fixed almost all the existing bugs and added several new features, improved parsing, and many other changes.</description>
+    <releaseNotes>Initial Nuget Package release.</releaseNotes>
+    <copyright>2013</copyright>
+    <tags>datejs date.js</tags>
+  </metadata>
+</package>

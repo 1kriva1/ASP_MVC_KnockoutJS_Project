@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EducatModel1" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EducatEntities2" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Cources" EntityType="EducatModel1.Cource" />
+    <EntitySet Name="Schools" EntityType="EducatModel1.School" />
+    <EntitySet Name="SchoolsToCources" EntityType="EducatModel1.SchoolsToCource" />
+    <EntitySet Name="Students" EntityType="EducatModel1.Student" />
+    <EntitySet Name="StudentsToCources" EntityType="EducatModel1.StudentsToCource" />
+    <AssociationSet Name="StudentsToSchools" Association="EducatModel1.StudentsToSchools">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SchoolId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Students" Relationship="EducatModel1.StudentsToSchools" FromRole="Schools" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="SchoolsToCource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="CourceId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Dob" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Schools" Relationship="EducatModel1.StudentsToSchools" FromRole="Students" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="StudentsToCource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="CourceId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="StudentsToSchools">
+    <End Role="Schools" Type="EducatModel1.School" Multiplicity="*" />
+    <End Role="Students" Type="EducatModel1.Student" Multiplicity="*" />
+  </Association>
+</Schema>

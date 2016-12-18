@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EducatModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EducatModel1StoreContainer">
+    <EntitySet Name="Cources" EntityType="EducatModel1.Store.Cources" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schools" EntityType="EducatModel1.Store.Schools" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SchoolsToCources" EntityType="EducatModel1.Store.SchoolsToCources" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Students" EntityType="EducatModel1.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudentsToCources" EntityType="EducatModel1.Store.StudentsToCources" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudentsToSchools" EntityType="EducatModel1.Store.StudentsToSchools" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__StudentsT__Schoo__72C60C4A" Association="EducatModel1.Store.FK__StudentsT__Schoo__72C60C4A">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="StudentsToSchools" EntitySet="StudentsToSchools" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentsT__Stude__71D1E811" Association="EducatModel1.Store.FK__StudentsT__Stude__71D1E811">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentsToSchools" EntitySet="StudentsToSchools" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SchoolId" Type="int" />
+  </EntityType>
+  <EntityType Name="Schools">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SchoolsToCources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolId" Type="int" Nullable="false" />
+    <Property Name="CourceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Dob" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StudentsToCources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="SchoolId" Type="int" Nullable="false" />
+    <Property Name="CourceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentsToSchools">
+    <Key>
+      <PropertyRef Name="StudentId" />
+      <PropertyRef Name="SchoolId" />
+    </Key>
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="SchoolId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__StudentsT__Schoo__72C60C4A">
+    <End Role="Schools" Type="EducatModel1.Store.Schools" Multiplicity="1" />
+    <End Role="StudentsToSchools" Type="EducatModel1.Store.StudentsToSchools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schools">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentsToSchools">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentsT__Stude__71D1E811">
+    <End Role="Students" Type="EducatModel1.Store.Students" Multiplicity="1" />
+    <End Role="StudentsToSchools" Type="EducatModel1.Store.StudentsToSchools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentsToSchools">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

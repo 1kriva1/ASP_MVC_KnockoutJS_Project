@@ -1,0 +1,518 @@
+﻿html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-fix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+
+/* main layout
+----------------------------------------------------------*/
+.content-wrapper {
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+#body {
+}
+
+
+input, textarea {
+    border: 1px solid #e2e2e2;
+    background: #fff;
+    color: #333;
+    font-size: 1.2em;
+    margin: 5px 0 6px 0;
+    padding: 5px;
+    width: 300px;
+}
+
+textarea {
+    font-family: inherit;
+    width: 500px;
+}
+
+    input:focus, textarea:focus {
+        border: 1px solid #7ac0da;
+    }
+
+    input[type="checkbox"] {
+        background: transparent;
+        border: inherit;
+        width: auto;
+    }
+
+    input[type="submit"],
+    input[type="button"],
+    button {
+        background-color: #d3dce0;
+        border: 1px solid #787878;
+        cursor: pointer;
+        font-size: 1.2em;
+        font-weight: 600;
+        padding: 7px;
+        margin-right: 8px;
+        width: auto;
+    }
+
+
+/* menu
+----------------------------------------------------------*/
+.wrap {
+    background-color:#297CCF;
+    margin-top:0px;
+}
+
+.menu {
+    border:1px solid #3B7CBF;
+    background-color: #297CCF;
+}
+    .menu > h1 {
+        color:#fff;
+    }
+    .menu > div {
+        background: #297CCF;
+        font-weight: bold;
+        position: relative;
+        border-bottom: 2px solid #283744;
+        margin-bottom:5px;
+    }
+        
+        .menu > div > div > .x {
+            background-color:#283744;
+            border:2px solid #283744;
+        }
+       .menu > div > div > a {
+           color: #fff;
+           text-align: center;
+           text-decoration: none;
+           line-height: 40px;
+           text-shadow: 1px 1px 0px #283744;
+           margin-right:30px;
+           padding:10px;           
+         }         
+
+    .menu > div > i {
+        height:23px;
+        display:none;
+    }
+        .menu > div > i > i{
+            display:block;
+            text-align:center;
+            border:1px solid #fff;
+            width:20px;
+            margin:3px;
+        }
+
+
+@media screen and (max-width: 900px) {
+    .menu > div {
+        height: auto;
+        border:none;
+        margin-bottom:0;
+        padding:0;
+        height:43px;
+        background-color:#283744;
+    }
+        .menu > div > .y {
+             display: block;
+        }
+        .menu > div > div { 
+            position: absolute;
+            right: 0;
+            top: 45px;
+            z-index: 30;
+            background-color: #283744;
+            border-radius: 5px;
+            font-size: 16px;
+            display: none;
+            text-align: left;
+            width:130px;
+        }
+        .menu > div > div:after { 
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            border: 10px solid transparent;
+            border-bottom-color: #283744;
+        }
+        .menu > div > div > .x {            
+            border-radius:5px;
+        }
+                .menu > div > div > a {
+                    display: block;
+                    border-bottom: 1px solid #888;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    text-transform: uppercase;
+                    color: #eee;
+                    margin:0px;
+                    text-align: left;
+                    padding:5px;
+                }
+               .menu > div > div > a:last-child {                    
+                    border-bottom: none;
+                }
+               .menu > div > div > .x {
+                    background-color:#283744;
+                    border-bottom:1px solid #888;
+                }
+
+    .menu > div > i {
+        display: block;
+        background-color: #283744;
+        position: relative;
+        padding:10px;
+        float:right;
+    }
+            .menu > div > i > i{
+                float:right;
+                clear: both;
+            }
+            .menu > div > i :after{
+                content:"";
+                width: 30px;
+                height: 30px;
+                display: inline-block;
+                position: absolute;
+                right: 15px;
+                top: 10px;
+        }
+}
+
+
+
+
+
+/* Students List
+----------------------------------------------------------*/
+.wrap-mid {
+    background-color: #fff;
+    padding:15px;
+}
+.list {
+    
+}
+    .list button{
+       
+    }
+    .list > h2 {
+        text-align:center;
+    }
+    .list > a {   
+        text-decoration:none;               
+    }
+    .list > .refresh {   
+        margin-left:10px;
+        text-decoration:underline;               
+    }
+    .list > .counter {       
+    }
+    .list > .buttonMore {        
+        padding:10px;
+        margin:auto;    
+        position:static;
+        height:10px;
+        background-color: #297CCF;
+        color:#fff;
+        text-align:center;
+    }
+    .list > .buttonPanel {
+        margin-top:10px;
+        background-color: #e2e2e2; 
+        padding:8px;
+    }
+        .list > .buttonPanel > button{
+             text-decoration:none;
+             background-color:#333;
+             color:#fff;
+             font-size:16px;
+        }
+
+    .list > .header {  
+        margin-top:10px;     
+        padding-left:10px; 
+        height:50px;
+        background-color: #297CCF;        
+    }
+        .list > .header > input{
+            width:190px;
+            font-size:17px;
+            margin-top:9px;
+        }
+        .list > .header > button{
+            font-size:17px;
+            border-radius:5px;
+            border:1px solid #495682;
+            background-color: #495682;
+            color:white;
+        }
+
+    .list > .data-table {  
+        padding:10px;
+        margin:auto;    
+        position:static;
+    }
+
+    .list > .data-table > .table-block:last-of-type {  
+         border-bottom:none;
+    }
+        .list > .data-table > .table-block {        
+             border-bottom:1px solid #d3dce0;
+             padding:10px 10px 0px 10px;
+        }
+            .list > .data-table > .table-block > .deleteButton {
+                    font-size:14px;
+                    border-radius:5px;
+                    border:1px solid #FF525E;
+                    background-color: #FF525E;
+                    color:white;
+                    margin-bottom:5px;
+            }
+            .list > .data-table > .table-block > .changeButton {                   
+                    background-color: #297CCF; 
+                    border:1px solid #297CCF;                   
+            }
+            .list > .data-table > .table-block > div {
+                display:inline-block;
+                width:150px;
+                overflow:hidden;   
+            }
+                .list > .data-table > .table-block > div > a {
+                    text-decoration:none;  
+                }
+
+/* Add Update styles
+----------------------------------------------------------*/
+.buttons input{
+        display:block;
+        background:#333;
+        color:white;
+        margin:0 auto;
+        max-width:400px;        
+}
+.addTitle {
+    text-align:center;
+}
+.buttonPanel {
+        margin-top:10px;
+        background-color: #e2e2e2; 
+        padding:8px;
+    }
+        .buttonPanel > button{
+             text-decoration:none;
+             background-color:#333;
+             color:#fff;
+             font-size:16px;
+        }
+.addupdate {
+    margin:0 auto;
+    max-width:400px;
+}
+    
+    .addupdate > .allHide {
+        z-index: 100;
+        padding: 0px 0 0px 0;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        background-image: url('/Images/Diff/fog-50.png');
+    }
+    .addupdate >  .notDialog {
+        border:none !important;
+    }
+    .addupdate > .mainForm {       
+        border:1px solid #787878;
+        border-radius:5px;
+        z-index:1;    
+    }
+        
+        .addupdate > .mainForm > .header{
+            background-color:#273e62;
+        }
+            .addupdate > .mainForm > .header > strong{                
+                font-size:18px;
+                color:#fff;
+            }
+            .addupdate > .mainForm > .buttonsMain > input{
+                display:block;
+                background:#333;
+                color:white;
+                margin:0 auto;
+                max-width:400px;
+            }
+
+        .addupdate > .mainForm > ul{
+            list-style:none;
+        }
+        .addupdate > .mainForm > ul > .dialogList{
+                    margin-top:10px;
+        }
+            .addupdate > .mainForm > ul > .dialogList > .container{
+                    border:1px solid black;
+                    border-radius:3px;
+                    background-color:#fff;
+                }
+            .addupdate > .mainForm > ul > .dialogList > .addSchool{
+                    margin-top:10px;    
+                    font-size:12px;
+                    color:white;
+                    background:#297ACC;
+                    border: 1px solid #297ACC;
+                    border-radius:3px;
+                }
+                    .addupdate > .mainForm > ul > .dialogList > .container > div > .tag{
+                        border:2px solid black;  
+                        border-radius:3px;
+                        padding:5px;
+                        margin:10px 0px 10px 10px;
+                        display:inline-block;
+                    }
+                        .addupdate > .mainForm > ul > .dialogList > .container > div > .tag > .closeTag{
+                            display:inline-block;
+                            cursor: pointer;
+                            color:#a10c0c;
+                        }
+                        .addupdate > .mainForm > ul > .dialogList > .container > div > .tag > div{
+                            display:inline-block;
+                        }
+                            .addupdate > .mainForm > ul > .dialogList > .container > div > .tag > div > a{
+                                text-decoration:none;
+                            }
+
+            .addupdate > .mainForm > ul > li > input{
+                    list-style:none;
+                    border-color: #A6A9AC;
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 0 10px;
+                    height:30px;
+                }
+            .addupdate > .mainForm > ul > li > select{
+                    list-style:none;
+                    border-color: #A6A9AC;
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 0 10px;
+                    height:30px;
+                    font-size:17px;
+                    margin-bottom:5px;
+                }
+            
+
+
+            .addupdate > .mainForm > ul > li > strong{
+                    font-size:15px;
+                    color:#273e62;
+                }
+            .addupdate > .mainForm > ul > li > .valMess{
+                    position:relative;
+                    float:right;
+                    font-size:13px;
+                    display:block;
+                    border:1px solid #FF525E;
+                    color:#fff;
+                    background-color:#FF525E;
+                    border-radius:2px;
+                    margin-right:5px;
+                }
+            .addupdate > .mainForm > ul > li > .valMess:after{
+                    content: "";
+                    position:relative;
+                    top:27px;
+                    width: 0;
+                    height: 0;
+                    border-left: 6px solid transparent;
+                    border-right: 6px solid transparent;
+                    border-top: 12px solid #FF525E;
+                }
+            
+
+/* dialog popup
+----------------------------------------------------------*/
+
+.allHide > .dialog {
+    margin: 150px auto;
+    max-width: 500px;
+    font-size: 16px;
+    border-radius: 3px;
+    background-color:#fff;
+}
+    .allHide > .dialog > h3 {
+        text-align:center;
+    }
+    .allHide > .dialog > .center {
+        text-align:center;
+        padding:20px;
+    }
+    .allHide > .dialog > .center> input {
+    }
+    .allHide > .dialog > .center > select {
+        width:250px;
+        height:30px;
+        margin-bottom:20px;
+    }
+    .allHide > .dialog > .center > button {
+        border:none;
+    }
+
+    .allHide > .dialog > .center > .butt {
+        background-color:#333;
+        color:#fff;
+    }
+
+    .allHide > .dialog > .center > .butCancel {
+        background-color:#e2e2e2;
+        color:#333;
+    }
+    .allHide > .dialog > .title {
+        background-color: #297CCF;
+        color: white;
+        padding: 10px 35px 10px 15px;
+        font-weight: bold;
+        position: relative;
+        box-shadow: 0 0 3px #233D4D;
+        border-radius: 3px 3px 0 0;
+        overflow: hidden;
+    }
+        .allHide > .dialog > .title > strong{
+            margin-left:20px;
+            font-size:20px;
+        }
+        .allHide > .dialog > .title > div {
+            cursor: pointer;
+            position: absolute;
+            height: 100%;
+            top: 4px;
+            right: 0;
+            width: 40px;
+            text-align: center;
+            font-size: 22px;
+            line-height: 35px;
+        }
+
+
+

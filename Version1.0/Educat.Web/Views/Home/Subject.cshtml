@@ -1,0 +1,89 @@
+﻿@using Educat.Logic.Pages;
+
+@model SubjectPage
+
+@{
+    ViewBag.Title = "Subject";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/CustomScripts/subject.js"></script>
+
+
+<script>
+    window.model = @Html.Raw(Json.Encode(Model));   
+</script>
+
+<div class="wrap-mid">  
+    <div class="content-wrapper">
+        <div class="buttonPanel">
+            <a data-bind="attr: { href: '/Home/School/' + SchoolId() }">
+                <div data-bind="text: SchoolName"></div>
+            </a>
+        </div>
+        <div class="addupdate">            
+            <div class="allHide" data-bind="style: {display: mainFormVisib() ? 'none' : 'block'} ">
+                <div class="dialog" data-bind="with: addStudentPopup, style:{display: addStudentPopup()==null ? 'none': 'block'}">
+                    <div class="title">
+                        <strong>Add</strong>
+                        <div data-bind="click: $parent.closeAddStudent">
+                            X
+                        </div>
+                    </div>
+                    <div class="center">
+                        <select data-bind="options: availableStudents, optionsCaption: $root.dynamicOptionsCaption(), value: selectedStudent,
+                                            optionsText: function(item) {
+                                                return item.FirstName() + ' ' + item.LastName()}">
+                        </select>
+                        <br />
+                        <button class="butt" data-bind="click: add, enable: enabled()">Add</button>
+                        <button class="butCancel" data-bind="click: $parent.closeAddStudent">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="dialog" data-bind="with: deleteStudentPopup, style:{display: deleteStudentPopup()==null ? 'none': 'block'}">
+                    <div class="title">
+                        <strong>Remove</strong>
+                        <div data-bind="click: $parent.closeDeleteStudent">
+                            X
+                        </div>
+                    </div>
+                    <div class="center">
+                        <h3>Are you sure to delete student from school?</h3>
+                        <button class="butt" data-bind="click: deletes">Remove</button>
+                        <button class="butCancel" data-bind="click: $parent.closeDeleteStudent">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            
+            @if (Model.Id > 0)
+            {
+                <h1 class="addTitle">Update Subject</h1>
+            }
+            else
+            {
+                <h1 class="addTitle">Add Subject</h1> 
+            }
+            <div class="mainForm notDialog" data-bind="style: {opacity: mainFormVisib() ? '1' : '0.5'} ">
+                <ul>
+                    <li>
+                        <label><strong>Name</strong></label>
+                        <span class="valMess" data-bind="validationMessage: Name"></span>
+                        <input type="text" name="Name" id="name" data-bind="value: Name" />
+                    </li>
+                </ul>
+                <div class="buttonsMain">
+                    @if (Model.Id > 0)
+                    {
+                        <input type="button" name="UpdateCource" value="Update Cource" data-bind="click: updateSubject" />
+                    }
+                    else
+                    {
+                        <input type="button" name="AddCource" value="Add Cource" data-bind="click: addSubject" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,12 @@
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\obj\Debug\Educat.Logic.Test.csprojResolveAssemblyReference.cache
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\bin\Debug\Educat.Logic.Test.dll.config
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\bin\Debug\Educat.Logic.Test.dll
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\bin\Debug\Educat.Logic.Test.pdb
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\bin\Debug\Educat.Model.dll
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\bin\Debug\EntityFramework.dll
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\bin\Debug\Educat.Model.pdb
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\bin\Debug\EntityFramework.xml
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\obj\Debug\Educat.Logic.Test.dll
+D:\Projects\Educat\Version1.0\Educat.Logic.Test\obj\Debug\Educat.Logic.Test.pdb
